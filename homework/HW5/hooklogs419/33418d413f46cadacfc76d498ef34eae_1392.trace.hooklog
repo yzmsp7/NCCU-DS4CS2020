@@ -1,0 +1,127 @@
+1392 malware.exe
+#220130000
+CreateFile
+hName=C:\WINDOWS\WindowsShell.Manifest
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#220430000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#220450000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\EnableBalloonTips
+result=FAILURE
+#220750000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\Setup\SystemSetupInProgress
+Return=SUCCESS
+type=REG_DWORD
+data=0
+#221090000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#221160000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#221410000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#221420000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#221930000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#221970000
+LoadLibrary
+lpFileName=shell32.dll
+Return=SUCCESS
+#223170000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager\Compositing
+result=FAILURE
+#223200000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\LameButtonText
+result=FAILURE
+#223210000
+LoadLibrary
+lpFileName=uxtheme.dll
+Return=SUCCESS
+#226060000
+LoadLibrary
+lpFileName=UxTheme.dll
+Return=SUCCESS
+#226830000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ListviewScrollOver
+result=FAILURE
+#226830000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ListviewScrollOver
+result=FAILURE
+#226850000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ListviewWatermark
+Return=SUCCESS
+type=REG_DWORD
+data=1
+#226870000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ListviewAlphaSelect
+Return=SUCCESS
+type=REG_DWORD
+data=1
+#226880000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ListviewShadow
+Return=SUCCESS
+type=REG_DWORD
+data=1
+#226890000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\UseDoubleClickTimer
+result=FAILURE
+#226910000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#227020000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#227280000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#227330000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#231230000
+RegCreateKey
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
+Return=SUCCESS
+#231230000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Local AppData
+Return=SUCCESS
+type=REG_EXPAND_SZ
+data=%
+#231290000
+RegCreateKey
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
+Return=SUCCESS
+#231290000
+RegSetValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Local AppData
+type=REG_SZ
+data=C:\Documents and Settings\ants\Local Settings\Application Data
+Return=SUCCESS

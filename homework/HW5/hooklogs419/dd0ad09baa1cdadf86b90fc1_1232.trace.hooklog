@@ -1,0 +1,27 @@
+1232 malware.exe
+#229920000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#229930000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#234400000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LDAP\LdapClientIntegrity
+Return=SUCCESS
+type=REG_DWORD
+data=1
+#233290000
+LoadLibrary
+lpFileName=adsldpc.dll
+Return=SUCCESS
+#240670000
+LoadLibrary
+lpFileName=adsldpc 
+Return=SUCCESS
+#248600000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS

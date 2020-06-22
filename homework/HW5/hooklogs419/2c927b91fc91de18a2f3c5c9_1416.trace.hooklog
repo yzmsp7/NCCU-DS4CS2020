@@ -1,0 +1,9 @@
+1416 malware.exe
+#232100000
+LoadLibrary
+lpFileName=kernel32
+Return=SUCCESS
+#232170000
+LoadLibrary
+lpFileName=user32
+Return=SUCCESS

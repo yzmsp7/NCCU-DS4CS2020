@@ -1,0 +1,67 @@
+1464 malware.exe
+#231550000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\Setup\SystemSetupInProgress
+Return=SUCCESS
+type=REG_DWORD
+data=0
+#232640000
+CreateFile
+hName=C:\WINDOWS\WindowsShell.Manifest
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#232910000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#232920000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\EnableBalloonTips
+result=FAILURE
+#231870000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#234140000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#233220000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#250940000
+LoadLibrary
+lpFileName=KERNEL32.DLL
+Return=SUCCESS
+#251440000
+LoadLibrary
+lpFileName=ADVAPI32.dll
+Return=SUCCESS
+#251490000
+LoadLibrary
+lpFileName=SHELL32.dll
+Return=SUCCESS
+#251510000
+LoadLibrary
+lpFileName=USER32.dll
+Return=SUCCESS
+#252340000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Version
+Return=SUCCESS
+type=REG_SZ
+data=6.0.2900.5512
+#253210000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager\Compositing
+result=FAILURE
+#253250000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\LameButtonText
+result=FAILURE
+#253260000
+LoadLibrary
+lpFileName=uxtheme.dll
+Return=SUCCESS

@@ -1,0 +1,96 @@
+1380 malware.exe
+#235990000
+CreateFile
+hName=C:\WINDOWS\WindowsShell.Manifest
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#236270000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#236280000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\EnableBalloonTips
+result=FAILURE
+#238060000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LDAP\LdapClientIntegrity
+Return=SUCCESS
+type=REG_DWORD
+data=1
+#237160000
+LoadLibrary
+lpFileName=adsldpc.dll
+Return=SUCCESS
+#243610000
+LoadLibrary
+lpFileName=adsldpc 
+Return=SUCCESS
+#250320000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#318000000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#319100000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#319640000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#321780000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#321780000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#322240000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#322370000
+RegCreateKey
+hKey=HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings
+Return=SUCCESS
+#322680000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#323650000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#323700000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#322710000
+CreateProcessInternal
+lpApplicationName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpCommandLine=?
+Return=SUCCESS
+dwProcessId=772
+dwThreadId=760
+#322710000
+CreateProcessInternal
+lpApplicationName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpCommandLine=?
+Return=SUCCESS
+dwProcessId=772
+dwThreadId=760
+#322710000
+CreateProcess
+lpApplicationName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpCommandLine=?
+Return=SUCCESS
+dwProcessId=772
+dwThreadId=760
+#324030000
+ExitProcess

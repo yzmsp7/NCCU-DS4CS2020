@@ -1,0 +1,820 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "final_url.ipynb",
+      "provenance": [],
+      "private_outputs": true,
+      "collapsed_sections": [],
+      "toc_visible": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "accelerator": "GPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "otvtjik8-2f0",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Malicious And Benign URLs\n",
+        "\n",
+        "https://www.kaggle.com/siddharthkumar25/malicious-and-benign-urls/kernels"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "sfl2Ilro-8Mw",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "!wget https://drive.google.com/uc?id=1ym1BccKeVxTRhy5M4lMPBhB1EShPrXsu -O urldata.zip"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "LBKXfyQtB-KY",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "!unzip urldata.zip"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "WvUAWRZpAdxl",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "!ls"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "vx09VxD5AjZ6",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import pandas as pd\n",
+        "data = pd.read_csv('urldata.csv', index_col=0)\n",
+        "data.head()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "VKL6A0ioCfWd",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data.info()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "eE3vg1ZNAnmU",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# check the label is correct\n",
+        "# malicious:1, benign:0\n",
+        "pd.crosstab(data.label, data.result)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "kYhCVIp0rVuR",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data.url.isna().sum()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IeVbDAW4Ckg_",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Preprocessing"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "LG2GYm0PCP_j",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "!pip install tld"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "X3B2SMYBCveY",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from tld import get_tld\n",
+        "\n",
+        "# Top-level Domain\n",
+        "data['tld'] = data['url'].apply(lambda x : get_tld(x, fail_silently=True))\n",
+        "# length of TLD\n",
+        "data['ntld'] = data['tld'].apply(lambda x : len(str(x).split('.')))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PjRhQ5ZeD_W2",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# length of URL\n",
+        "data['url_len'] = data['url'].apply(lambda x : len(str(x)))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "SsF6gM2hIWQr",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# special characters\n",
+        "import re\n",
+        "def special_count(url):\n",
+        "    # remove ://\n",
+        "    s = re.sub('://', '', url)    \n",
+        "    s = re.sub('[\\w]+', '', s)\n",
+        "    return len(s)\n",
+        "\n",
+        "data['special_count'] = data['url'].apply(lambda x : special_count(str(x)))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "TC1R1tH3JBNn",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "def digit_count(url):\n",
+        "    digits = 0\n",
+        "    for i in url:\n",
+        "        if i.isnumeric():\n",
+        "            digits += 1\n",
+        "    return digits\n",
+        "\n",
+        "data['digits'] = data['url'].apply(lambda x : digit_count(x))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "q9sk-WdlHNmj",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from urllib.parse import urlparse\n",
+        "\n",
+        "urlparse(data['url'].iloc[0])\n",
+        "\n",
+        "# hostname\n",
+        "data['domain_len'] = data['url'].apply(lambda x : len(urlparse(x).netloc))\n",
+        "\n",
+        "# domain token\n",
+        "data['domain_tokens'] = data['url'].apply(lambda x : len(urlparse(x).netloc.split('.')))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "nwZqSDY2Evbj",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# count https\n",
+        "data['https_count'] = data['url'].apply(lambda x : x.count('https'))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "a6RBvBNHEdMc",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data.head()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "QCeaXOPmFuUq",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "[url for url in data.loc[data.https_count > 2, 'url']]"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "y69fbm1qBvTg",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import seaborn as sns\n",
+        "\n",
+        "cols = ['label', 'ntld', 'url_len', 'special_count','digits', 'domain_len', 'domain_tokens', 'https_count']\n",
+        "sns.pairplot(data[cols], hue='label', palette={\"benign\": \"green\", \"malicious\": \"red\"})"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "i1QAY1TAJhaI",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data.drop(columns=['result']).to_csv('process_data.csv', index=False)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "RkadsVCBPHdm",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# from google.colab import files\n",
+        "\n",
+        "# files.download('process_data.csv')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "q_82s6WCKjMm",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Modeling\n",
+        "\n",
+        "- Logsitic Regression\n",
+        "- Random Forest\n",
+        "- XGboost\n",
+        "- SVM"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yYKzu4hnK2P-",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from sklearn.model_selection import train_test_split\n",
+        "\n",
+        "X = data.drop(columns=['url','label','tld','result'])\n",
+        "y = data.result.values\n",
+        "\n",
+        "X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42,test_size=.2)\n",
+        "print('Training X: ', X_train.shape, 'y: ', y_train.shape)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "D6g_rlB27B7O",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from sklearn.preprocessing import MinMaxScaler\n",
+        "\n",
+        "scaler = MinMaxScaler()\n",
+        "scaler.fit(X_train)\n",
+        "\n",
+        "X_train_sd = scaler.transform(X_train)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fgqqwmuZKjz6",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from sklearn.metrics import accuracy_score, classification_report, confusion_matrix\n",
+        "\n",
+        "lg = LogisticRegression(max_iter=300)\n",
+        "lg.fit(X_train, y_train)\n",
+        "\n",
+        "lg_pred = lg.predict(X_test)\n",
+        "print('Logistic Regression accuracy: ', accuracy_score(y_test, lg_pred))\n",
+        "print(classification_report(y_test, lg_pred))\n",
+        "print(confusion_matrix(y_test, lg_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BXtb4jWLi8iT",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "lg = LogisticRegression(max_iter=300)\n",
+        "lg.fit(X_train_sd, y_train)\n",
+        "\n",
+        "lg_pred = lg.predict(X_test)\n",
+        "print('Logistic Regression accuracy (with standardization): ', accuracy_score(y_test, lg_pred))\n",
+        "print(classification_report(y_test, lg_pred))\n",
+        "print(confusion_matrix(y_test, lg_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qZ75EOmo3zoT",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from sklearn.neighbors import KNeighborsClassifier\n",
+        "\n",
+        "neigh = KNeighborsClassifier(n_neighbors=5)\n",
+        "neigh.fit(X_train, y_train)\n",
+        "\n",
+        "neigh_pred = lg.predict(X_test)\n",
+        "print('kNN accuracy (without standardization): ', accuracy_score(y_test, neigh_pred))\n",
+        "print(classification_report(y_test, neigh_pred))\n",
+        "print(confusion_matrix(y_test, neigh_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HL9PUNru7V8q",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "neigh = KNeighborsClassifier(n_neighbors=5)\n",
+        "neigh.fit(X_train_sd, y_train)\n",
+        "\n",
+        "neigh_pred = lg.predict(X_test)\n",
+        "print('kNN accuracy (with standardization): ', accuracy_score(y_test, neigh_pred))\n",
+        "print(classification_report(y_test, neigh_pred))\n",
+        "print(confusion_matrix(y_test, neigh_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "d2lIY2e4LabR",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from sklearn.ensemble import RandomForestClassifier\n",
+        "\n",
+        "rfc = RandomForestClassifier()\n",
+        "rfc.fit(X_train, y_train)\n",
+        "\n",
+        "rfc_pred = rfc.predict(X_test)\n",
+        "print('Random Forest accuracy: ', accuracy_score(y_test, rfc_pred))\n",
+        "print(classification_report(y_test, rfc_pred))\n",
+        "print(confusion_matrix(y_test, rfc_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "nhCAq7mnzjk9",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import xgboost as xgb\n",
+        "params = {'objective':'binary:logistic',\n",
+        "          'colsample_bytree': 0.3, 'learning_rate': 0.01,\n",
+        "          'max_depth': 20, 'alpha': 10}\n",
+        "\n",
+        "dmat = xgb.DMatrix(data = X_train, label = y_train)\n",
+        "cv_res = xgb.cv(dtrain=dmat, params=params, nfold=10,\n",
+        "                num_boost_round=100,early_stopping_rounds=20, \n",
+        "                metrics=\"error\", as_pandas=True, seed=42)\n",
+        "cv_res"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KLxarkkK9KXm",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "xgc = xgb.XGBClassifier(colsample_bytree = 0.3, learning_rate = 0.01, max_depth = 10, alpha = 10, n_estimators = 12)\n",
+        "xgc.fit(X_train, y_train)\n",
+        "\n",
+        "xgc_pred = xgc.predict(X_test)\n",
+        "print('XGBoost accuracy: ', accuracy_score(y_test, xgc_pred))\n",
+        "print(classification_report(y_test, xgc_pred))\n",
+        "print(confusion_matrix(y_test, xgc_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "u0VJwQ0mdFyT",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# from sklearn.pipeline import make_pipeline\n",
+        "# from sklearn.preprocessing import StandardScaler\n",
+        "# from sklearn.svm import SVC\n",
+        "\n",
+        "# svc = make_pipeline(StandardScaler(), SVC(gamma='auto'))\n",
+        "# svc.fit(X_train, y_train)\n",
+        "# svc_pred = svc.predict(X_test)\n",
+        "\n",
+        "# print('SVM accuracy: ', accuracy_score(y_test, svc_pred))\n",
+        "# print(classification_report(y_test, svc_pred))\n",
+        "# print(confusion_matrix(y_test, svc_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7ElCg5BGDuD5",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Feature importance"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fkDqvj7_EOKl",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "feature_names = X_train.columns\n",
+        "tree_feature_importances = (rfc.feature_importances_)\n",
+        "sorted_idx = tree_feature_importances.argsort()\n",
+        "y_ticks = np.arange(0, len(feature_names))\n",
+        "fig, ax = plt.subplots()\n",
+        "ax.barh(y_ticks, tree_feature_importances[sorted_idx])\n",
+        "ax.set_yticklabels(feature_names[sorted_idx])\n",
+        "ax.set_yticks(y_ticks)\n",
+        "ax.set_title(\"Random Forest Feature Importances (MDI)\")\n",
+        "fig.tight_layout()\n",
+        "plt.show()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "QeXsA-8jvyYi",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data.corr()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qMfW0nkbFC01",
+        "colab_type": "text"
+      },
+      "source": [
+        "從 feature importance可以看出https為最重要，多數惡意連結不會進行SSL加密，成為判斷有用的特徵。"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BQgORskOASFK",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Benchmark record\n",
+        "\n",
+        "['ntld', 'url_len', 'special_count', 'digits', 'domain_len',\n",
+        "       'domain_tokens', 'https']\n",
+        "       \n",
+        "|          \t|   LR   \t|   RF   \t|   XGB  \t|\n",
+        "|:--------:\t|:------:\t|:------:\t|:------:\t|\n",
+        "| Accuracy \t| .98424 \t| .99214 \t| .98418 \t|\n",
+        "| F1-score \t|   .98  \t|   .99  \t|   .98  \t|"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "WzyEvsM2KBBM",
+        "colab_type": "text"
+      },
+      "source": [
+        "## More features\n",
+        "\n",
+        "嘗試做縮短網址偵測，但比數實在太少，難以作為分類的特徵，99%為0。"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "axoXztTnBPXR",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "def detect_shortener(url):\n",
+        "    matches = ['href.li','bit.ly','goo.gl','shorte.st','go2l.ink','ow.ly','tinyurl','cli.gs',\n",
+        "               'tr.im','is.gd','yfrog.com','tiny.cc','yourls']\n",
+        "    if any(x in url for x in matches):\n",
+        "        return 1\n",
+        "    else:\n",
+        "        return 0\n",
+        "\n",
+        "data['is_shortener'] = data['url'].apply(lambda x : detect_shortener(x))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KyG5Ch8cLCwR",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data.loc[data.is_shortener == 1, 'label'].value_counts()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BVCQYHE6Ke1O",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data['query_len'] = data['url'].apply(lambda x : len(urlparse(x).query))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1nddp0rOaKjy",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "X = data.drop(columns=['url','label','tld','result'])\n",
+        "y = data.result.values\n",
+        "\n",
+        "X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42,test_size=.2)\n",
+        "print('Training X: ', X_train.shape, 'y: ', y_train.shape)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ywk3Z1T2QiAu",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "rfc = RandomForestClassifier()\n",
+        "rfc.fit(X_train, y_train)\n",
+        "\n",
+        "rfc_pred = rfc.predict(X_test)\n",
+        "print('Random Forest accuracy: ', accuracy_score(y_test, rfc_pred))\n",
+        "print(classification_report(y_test, rfc_pred))\n",
+        "print(confusion_matrix(y_test, rfc_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "RsHF5tkNaNLE",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "feature_names = X_train.columns\n",
+        "tree_feature_importances = (rfc.feature_importances_)\n",
+        "sorted_idx = tree_feature_importances.argsort()\n",
+        "y_ticks = np.arange(0, len(feature_names))\n",
+        "fig, ax = plt.subplots()\n",
+        "ax.barh(y_ticks, tree_feature_importances[sorted_idx])\n",
+        "ax.set_yticklabels(feature_names[sorted_idx])\n",
+        "ax.set_yticks(y_ticks)\n",
+        "ax.set_title(\"Random Forest Feature Importances (MDI)\")\n",
+        "fig.tight_layout()\n",
+        "plt.show()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UFx72H3KaPdU",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "plt.scatter(data.https_count, data.result, c=data.result)\n",
+        "plt.show()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "OKbvuBFy_7PG",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data.corr()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1TBNHGpjACW_",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "sns.countplot(data[data.https_count>0].result)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BQFlIMS-Ej4w",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "sns.countplot(data[data.https_count==0].result)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Dd4ux6UZAWrC",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "data[data.https_count>1].result.value_counts()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KTcuG9PDBJ9M",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}

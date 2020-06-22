@@ -1,0 +1,43 @@
+1404 ns3.tmp
+#274490000
+LoadLibrary
+lpFileName=VERSION.dll
+Return=SUCCESS
+#274790000
+CreateFile
+hName=C:\WINDOWS\System32\Wbem\wmic.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#274960000
+CreateFile
+hName=C:\WINDOWS\System32\Wbem\wmic.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#277530000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#277590000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#272870000
+CreateProcessInternal
+lpCommandLine=WMIC csproduct Get UUID /FORMAT:textvaluelist.xsl
+Return=SUCCESS
+dwProcessId=1412
+dwThreadId=1416
+#272860000
+CreateProcessInternal
+lpCommandLine=WMIC csproduct Get UUID /FORMAT:textvaluelist.xsl
+Return=SUCCESS
+dwProcessId=1412
+dwThreadId=1416
+#272860000
+CreateProcess
+lpCommandLine=WMIC csproduct Get UUID /FORMAT:textvaluelist.xsl
+Return=SUCCESS
+dwProcessId=1412
+dwThreadId=1416

@@ -1,0 +1,45 @@
+1468 ns4.tmp
+#360500000
+LoadLibrary
+lpFileName=VERSION.dll
+Return=SUCCESS
+#360660000
+CreateFile
+hName=C:\WINDOWS\system32\taskkill.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#360760000
+CreateFile
+hName=C:\WINDOWS\system32\taskkill.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#362660000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#362700000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#359340000
+CreateProcessInternal
+lpCommandLine=taskkill /f /im myproxy.exe
+Return=SUCCESS
+dwProcessId=1696
+dwThreadId=1736
+#359340000
+CreateProcessInternal
+lpCommandLine=taskkill /f /im myproxy.exe
+Return=SUCCESS
+dwProcessId=1696
+dwThreadId=1736
+#359340000
+CreateProcess
+lpCommandLine=taskkill /f /im myproxy.exe
+Return=SUCCESS
+dwProcessId=1696
+dwThreadId=1736
+#397710000
+ExitProcess

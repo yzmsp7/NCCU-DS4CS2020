@@ -1,0 +1,60 @@
+1348 malware.exe
+#224930000
+CreateFile
+hName=C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#224930000
+CreateFile
+hName=C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#224980000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp
+desiredAccess=GENERIC_READ 
+creationDisposition=CREATE_NEW
+Return=SUCCESS
+#225000000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#225000000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#227070000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#227120000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#225170000
+CreateProcessInternal
+lpApplicationName=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp
+lpCommandLine=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp 4736 C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe
+Return=SUCCESS
+dwProcessId=1360
+dwThreadId=1364
+#225170000
+CreateProcessInternal
+lpApplicationName=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp
+lpCommandLine=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp 4736 C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe
+Return=SUCCESS
+dwProcessId=1360
+dwThreadId=1364
+#225170000
+CreateProcess
+lpApplicationName=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp
+lpCommandLine=C:\DOCUME~1\ants\LOCALS~1\Temp\GLB1.tmp 4736 C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe
+Return=SUCCESS
+dwProcessId=1360
+dwThreadId=1364

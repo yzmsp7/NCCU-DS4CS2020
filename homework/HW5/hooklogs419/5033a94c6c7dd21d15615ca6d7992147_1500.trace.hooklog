@@ -1,0 +1,96 @@
+1500 malware.exe
+#249670000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LDAP\LdapClientIntegrity
+Return=SUCCESS
+type=REG_DWORD
+data=1
+#248710000
+LoadLibrary
+lpFileName=adsldpc.dll
+Return=SUCCESS
+#256830000
+LoadLibrary
+lpFileName=adsldpc 
+Return=SUCCESS
+#263250000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#288910000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#290100000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#290950000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#294160000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#294170000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#295690000
+CreateFile
+hName=C:\WINDOWS\WindowsShell.Manifest
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#295990000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#296040000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\EnableBalloonTips
+result=FAILURE
+#294780000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#296370000
+RegCreateKey
+hKey=HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings
+Return=SUCCESS
+#296720000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#297480000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#297520000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#296760000
+CreateProcessInternal
+lpApplicationName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpCommandLine=?
+Return=SUCCESS
+dwProcessId=1432
+dwThreadId=1484
+#296750000
+CreateProcessInternal
+lpApplicationName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpCommandLine=?
+Return=SUCCESS
+dwProcessId=1432
+dwThreadId=1484
+#296750000
+CreateProcess
+lpApplicationName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpCommandLine=?
+Return=SUCCESS
+dwProcessId=1432
+dwThreadId=1484
+#297860000
+ExitProcess

@@ -1,0 +1,139 @@
+1288 malware.exe
+#235210000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#235630000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\Setup\SystemSetupInProgress
+Return=SUCCESS
+type=REG_DWORD
+data=0
+#237250000
+CreateFile
+hName=C:\WINDOWS\WindowsShell.Manifest
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#237590000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#237610000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\EnableBalloonTips
+result=FAILURE
+#235980000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#238170000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#238960000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#240330000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#241200000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#245280000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#245290000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#245530000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Rpc\MaxRpcSize
+result=FAILURE
+#245680000
+LoadLibrary
+lpFileName=rpcrt4.dll
+Return=SUCCESS
+#246410000
+CreateFile
+hName=\\.\Ip
+desiredAccess=GENERIC_EXECUTE 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#246410000
+CreateFile
+hName=\\.\Ip
+desiredAccess=GENERIC_EXECUTE 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#247260000
+CreateFile
+hName=C:\Documents and Settings\All Users\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#247260000
+CopyFile
+lpExistingFileName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpNewFileName=C:\Program Files\revnea\svchost.exe
+Return=SUCCESS
+#247250000
+CopyFile
+lpExistingFileName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpNewFileName=C:\Program Files\revnea\svchost.exe
+Return=SUCCESS
+#249360000
+RegSetValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Windows Test 5.0\Description
+type=REG_SZ
+data=This is Windows Server 5.0
+Return=SUCCESS
+#251660000
+LoadLibrary
+lpFileName=VERSION.dll
+Return=SUCCESS
+#251760000
+CreateFile
+hName=C:\WINDOWS\system32\cmd.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#251850000
+CreateFile
+hName=C:\WINDOWS\system32\cmd.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#253180000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#253210000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#250810000
+CreateProcessInternal
+lpCommandLine=C:\WINDOWS\system32\cmd.exe /c del C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe > nul
+Return=SUCCESS
+dwProcessId=1360
+dwThreadId=1400
+#250810000
+CreateProcessInternal
+lpCommandLine=C:\WINDOWS\system32\cmd.exe /c del C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe > nul
+Return=SUCCESS
+dwProcessId=1360
+dwThreadId=1400
+#250810000
+CreateProcess
+lpCommandLine=C:\WINDOWS\system32\cmd.exe /c del C:\DOCUME~1\ALLUSE~1\Desktop\malware.exe > nul
+Return=SUCCESS
+dwProcessId=1360
+dwThreadId=1400
+#253330000
+ExitProcess

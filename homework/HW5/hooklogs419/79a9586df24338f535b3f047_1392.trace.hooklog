@@ -1,0 +1,27 @@
+1392 lzma.exe
+#301810000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\bi.lza
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#301810000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\bi.lza
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#301830000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\biSetup48702.exe
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#301830000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\biSetup48702.exe
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#382300000
+ExitProcess

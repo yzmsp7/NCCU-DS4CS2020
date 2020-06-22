@@ -1,0 +1,142 @@
+1220 malware.exe
+#223480000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#223490000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#223940000
+CreateFile
+hName=C:\WINDOWS\system32\OLEACCRC.DLL
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#225510000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager\Compositing
+result=FAILURE
+#225540000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\LameButtonText
+result=FAILURE
+#225550000
+LoadLibrary
+lpFileName=uxtheme.dll
+Return=SUCCESS
+#227870000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\adgwsukbgauoppf.exe.config
+desiredAccess=GENERIC_READ GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#227860000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\adgwsukbgauoppf.exe.config
+desiredAccess=GENERIC_READ GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#228010000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\111.txt
+desiredAccess=GENERIC_READ GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#228010000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\111.txt
+desiredAccess=GENERIC_READ GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#228850000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\bkdhcaipvcyiwxj
+desiredAccess=GENERIC_READ GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#228850000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\bkdhcaipvcyiwxj
+desiredAccess=GENERIC_READ GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#228920000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\bkdhcaipvcyiwxj
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#228920000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\bkdhcaipvcyiwxj
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#228960000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\adgwsukbgauoppf.exe
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#228960000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\\adgwsukbgauoppf.exe
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#241590000
+DeleteFile
+fileName=C:\DOCUME~1\ants\LOCALS~1\Temp\\bkdhcaipvcyiwxj
+Return=SUCCESS
+#241590000
+DeleteFile
+fileName=C:\DOCUME~1\ants\LOCALS~1\Temp\\bkdhcaipvcyiwxj
+Return=SUCCESS
+#241640000
+CreateFile
+hName=C:\Documents and Settings\All Users\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#241640000
+CopyFile
+lpExistingFileName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpNewFileName=C:\DOCUME~1\ants\LOCALS~1\Temp\\parent.txt
+Return=SUCCESS
+#241640000
+CopyFile
+lpExistingFileName=C:\Documents and Settings\All Users\Desktop\malware.exe
+lpNewFileName=C:\DOCUME~1\ants\LOCALS~1\Temp\\parent.txt
+Return=SUCCESS
+#245670000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#246150000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#241840000
+CreateProcessInternal
+lpApplicationName=C:\DOCUME~1\ants\LOCALS~1\Temp\\adgwsukbgauoppf.exe
+lpCommandLine=
+Return=SUCCESS
+dwProcessId=1232
+dwThreadId=1236
+#241830000
+CreateProcessInternal
+lpApplicationName=C:\DOCUME~1\ants\LOCALS~1\Temp\\adgwsukbgauoppf.exe
+lpCommandLine=
+Return=SUCCESS
+dwProcessId=1232
+dwThreadId=1236
+#241830000
+CreateProcess
+lpApplicationName=C:\DOCUME~1\ants\LOCALS~1\Temp\\adgwsukbgauoppf.exe
+lpCommandLine=
+Return=SUCCESS
+dwProcessId=1232
+dwThreadId=1236
+#246480000
+ExitProcess

@@ -1,0 +1,29 @@
+1388 ns3.tmp
+#299300000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#299340000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#297260000
+CreateProcessInternal
+lpCommandLine="C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\lzma.exe" "d" "C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\bi.lza" "C:\DOCUME~1\ants\LOCALS
+Return=SUCCESS
+dwProcessId=1392
+dwThreadId=1372
+#297260000
+CreateProcessInternal
+lpCommandLine="C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\lzma.exe" "d" "C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\bi.lza" "C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\biSetup48702.exe"
+Return=SUCCESS
+dwProcessId=1392
+dwThreadId=1372
+#297260000
+CreateProcess
+lpCommandLine="C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\lzma.exe" "d" "C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\bi.lza" "C:\DOCUME~1\ants\LOCALS~1\Temp\nsn2.tmp\biSetup48702.exe"
+Return=SUCCESS
+dwProcessId=1392
+dwThreadId=1372
+#382370000
+ExitProcess

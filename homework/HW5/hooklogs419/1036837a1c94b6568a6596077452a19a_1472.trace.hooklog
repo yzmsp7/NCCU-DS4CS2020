@@ -1,0 +1,183 @@
+1472 malware.exe
+#233220000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#234560000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS
+#236530000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#239720000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#239720000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#242020000
+CreateFile
+hName=C:\WINDOWS\WindowsShell.Manifest
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#242370000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#242380000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\EnableBalloonTips
+result=FAILURE
+#240550000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#242930000
+RegCreateKey
+hKey=HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings
+Return=SUCCESS
+#243060000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\Setup\SystemSetupInProgress
+Return=SUCCESS
+type=REG_DWORD
+data=0
+#243410000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#245160000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#243930000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#247740000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager\Compositing
+result=FAILURE
+#247770000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\LameButtonText
+result=FAILURE
+#247810000
+LoadLibrary
+lpFileName=uxtheme.dll
+Return=SUCCESS
+#250320000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Rpc\MaxRpcSize
+result=FAILURE
+#250380000
+LoadLibrary
+lpFileName=rpcrt4.dll
+Return=SUCCESS
+#250470000
+CreateFile
+hName=\\.\PIPE\lsarpc
+desiredAccess=GENERIC_READ GENERIC_WRITE 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#250590000
+CreateFile
+hName=C:\Documents and Settings\All Users\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#250580000
+CreateFile
+hName=C:\Documents and Settings\All Users\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#251560000
+LoadLibrary
+lpFileName=MSVCRT.DLL
+Return=SUCCESS
+#251720000
+LoadLibrary
+lpFileName=C:\WINDOWS\system32\MFC42LOC.DLL
+Return=FAILURE
+#250620000
+LoadLibrary
+lpFileName=MFC42.DLL
+Return=SUCCESS
+#251920000
+LoadLibrary
+lpFileName=MSVCRT.dll
+Return=SUCCESS
+#251990000
+LoadLibrary
+lpFileName=KERNEL32.dll
+Return=SUCCESS
+#252030000
+LoadLibrary
+lpFileName=USER32.dll
+Return=SUCCESS
+#252330000
+LoadLibrary
+lpFileName=COMCTL32.DLL
+Return=SUCCESS
+#252480000
+LoadLibrary
+lpFileName=COMCTL32.dll
+Return=SUCCESS
+#252850000
+LoadLibrary
+lpFileName=COMCTL32.DLL
+Return=SUCCESS
+#253180000
+LoadLibrary
+lpFileName=COMCTL32.DLL
+Return=SUCCESS
+#253550000
+LoadLibrary
+lpFileName=COMCTL32.DLL
+Return=SUCCESS
+#253910000
+LoadLibrary
+lpFileName=COMCTL32.DLL
+Return=SUCCESS
+#254610000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#254640000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\UseDoubleClickTimer
+result=FAILURE
+#254650000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#254690000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#254850000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#254880000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\Tahoma
+result=FAILURE
+#254900000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\System
+result=FAILURE
+#254910000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\System
+result=FAILURE
+#254920000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes\System
+result=FAILURE

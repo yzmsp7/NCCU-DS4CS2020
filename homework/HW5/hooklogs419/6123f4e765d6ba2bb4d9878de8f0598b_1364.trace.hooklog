@@ -1,0 +1,19 @@
+1364 malware.exe
+#233710000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LDAP\LdapClientIntegrity
+Return=SUCCESS
+type=REG_DWORD
+data=1
+#232700000
+LoadLibrary
+lpFileName=adsldpc.dll
+Return=SUCCESS
+#240840000
+LoadLibrary
+lpFileName=adsldpc 
+Return=SUCCESS
+#248130000
+LoadLibrary
+lpFileName=kernel32.dll
+Return=SUCCESS

@@ -1,0 +1,45 @@
+1108 ns3.tmp
+#318880000
+LoadLibrary
+lpFileName=VERSION.dll
+Return=SUCCESS
+#319490000
+CreateFile
+hName=C:\WINDOWS\system32\taskkill.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#319700000
+CreateFile
+hName=C:\WINDOWS\system32\taskkill.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#321730000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#321760000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#316680000
+CreateProcessInternal
+lpCommandLine=taskkill /f /im BrowserProtectIU.exe
+Return=SUCCESS
+dwProcessId=208
+dwThreadId=1412
+#316670000
+CreateProcessInternal
+lpCommandLine=taskkill /f /im BrowserProtectIU.exe
+Return=SUCCESS
+dwProcessId=208
+dwThreadId=1412
+#316670000
+CreateProcess
+lpCommandLine=taskkill /f /im BrowserProtectIU.exe
+Return=SUCCESS
+dwProcessId=208
+dwThreadId=1412
+#355830000
+ExitProcess

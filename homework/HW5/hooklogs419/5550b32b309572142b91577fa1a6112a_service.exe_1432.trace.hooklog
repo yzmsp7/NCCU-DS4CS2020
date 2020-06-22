@@ -1,0 +1,21 @@
+1432 service.exe
+#284280000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#284330000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#281470000
+CreateProcessInternal
+lpCommandLine=C:\DOCUME~1\ants\LOCALS~1\Temp\service.exe
+Return=SUCCESS
+dwProcessId=1440
+dwThreadId=1264
+#284770000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\service.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS

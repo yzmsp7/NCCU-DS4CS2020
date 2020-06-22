@@ -1,0 +1,113 @@
+1488 malware.exe
+#235750000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\CriticalSectionTimeout
+Return=SUCCESS
+#235790000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\Software\Microsoft\Ole\RWLockResourceTimeOut
+result=FAILURE
+#236300000
+CreateFile
+hName=C:\WINDOWS\WindowsShell.Manifest
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#236650000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\SmoothScroll
+result=FAILURE
+#236710000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\EnableBalloonTips
+result=FAILURE
+#239800000
+RegQueryValue
+hKey=HKEY_LOCAL_MACHINE\SYSTEM\Setup\SystemSetupInProgress
+Return=SUCCESS
+type=REG_DWORD
+data=0
+#240140000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#240320000
+LoadLibrary
+lpFileName=comctl32.dll
+Return=SUCCESS
+#237890000
+LoadLibrary
+lpFileName=shell32.dll
+Return=SUCCESS
+#240600000
+CreateFile
+hName=C:\WINDOWS\system32\netmsg.dll
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#240810000
+CreateFile
+hName=C:\Documents and Settings\All Users\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#240810000
+CreateFile
+hName=C:\Documents and Settings\All Users\Desktop\malware.exe
+desiredAccess=GENERIC_READ 
+creationDisposition=OPEN_EXISTING
+Return=SUCCESS
+#274260000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\is-F8V74.tmp\malware.tmp
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#274260000
+CreateFile
+hName=C:\DOCUME~1\ants\LOCALS~1\Temp\is-F8V74.tmp\malware.tmp
+desiredAccess=GENERIC_WRITE 
+creationDisposition=CREATE_ALWAYS
+Return=SUCCESS
+#627740000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager\Compositing
+result=FAILURE
+#627790000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Control Panel\Desktop\LameButtonText
+result=FAILURE
+#627800000
+LoadLibrary
+lpFileName=uxtheme.dll
+Return=SUCCESS
+#630610000
+LoadLibrary
+lpFileName=UxTheme.dll
+Return=SUCCESS
+#633540000
+RegQueryValue
+hKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache
+Return=SUCCESS
+#633610000
+LoadLibrary
+lpFileName=advapi32.dll
+Return=SUCCESS
+#630940000
+CreateProcessInternal
+lpCommandLine="C:\DOCUME~1\ants\LOCALS~1\Temp\is-F8V74.tmp\malware.tmp" /SL5="$900AC,4951342,56832,C:\Documents and Settings\All Users\Desktop
+Return=SUCCESS
+dwProcessId=1544
+dwThreadId=1532
+#630930000
+CreateProcessInternal
+lpCommandLine="C:\DOCUME~1\ants\LOCALS~1\Temp\is-F8V74.tmp\malware.tmp" /SL5="$900AC,4951342,56832,C:\Documents and Settings\All Users\Desktop\malware.exe" 
+Return=SUCCESS
+dwProcessId=1544
+dwThreadId=1532
+#630930000
+CreateProcess
+lpCommandLine="C:\DOCUME~1\ants\LOCALS~1\Temp\is-F8V74.tmp\malware.tmp" /SL5="$900AC,4951342,56832,C:\Documents and Settings\All Users\Desktop\malware.exe" 
+Return=SUCCESS
+dwProcessId=1544
+dwThreadId=1532
